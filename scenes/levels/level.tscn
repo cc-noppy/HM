@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg3bmymyt5xjq"]
+
+[ext_resource type="Texture2D" uid="uid://d3nimwhps02la" path="res://graphics/levels/debugroom1.png" id="1_iihck"]
+[ext_resource type="PackedScene" uid="uid://cj45gqgstg3ff" path="res://scenes/player/player.tscn" id="2_w5dnv"]
+
+[node name="level" type="Node2D"]
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="walls"]
+position = Vector2(-3, 5)
+scale = Vector2(3.10417, 2.05469)
+texture = ExtResource("1_iihck")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls"]
+polygon = PackedVector2Array(-581, -370, 574, -370, 573, 373, -575, 371, -578, 316, 496, 319, 491, -308, -501, -315, -497, 313, -580, 312)
+
+[node name="player" parent="." instance=ExtResource("2_w5dnv")]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
