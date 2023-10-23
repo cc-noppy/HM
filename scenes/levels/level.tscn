@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg3bmymyt5xjq"]
+
+[ext_resource type="Texture2D" uid="uid://d3nimwhps02la" path="res://graphics/levels/debugroom1.png" id="1_iihck"]
+[ext_resource type="Texture2D" uid="uid://5womne6ofuos" path="res://graphics/tilesets/interior_test/tilemap_interior_test1.png" id="2_v3emx"]
+[ext_resource type="PackedScene" uid="uid://cj45gqgstg3ff" path="res://scenes/player/player.tscn" id="2_w5dnv"]
+[ext_resource type="Texture2D" uid="uid://cj38qoo65dj3h" path="res://graphics/tilesets/interior_test/tilemap_interior_test2.png" id="3_7f38j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7kd0i"]
+texture = ExtResource("2_v3emx")
+texture_region_size = Vector2i(64, 64)
+17:0/0 = 0
+18:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+1:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef3ws"]
+texture = ExtResource("3_7f38j")
+texture_region_size = Vector2i(128, 128)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ievdy"]
+sources/1 = SubResource("TileSetAtlasSource_7kd0i")
+sources/2 = SubResource("TileSetAtlasSource_ef3ws")
+
+[node name="level" type="Node2D"]
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="walls"]
+position = Vector2(-3, 5)
+scale = Vector2(3.10417, 2.05469)
+texture = ExtResource("1_iihck")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls"]
+polygon = PackedVector2Array(-581, -370, 574, -370, 573, 373, 0, 375, 0, 314, 495, 317, 491, -308, -501, -315, -497, 313, -580, 312)
+
+[node name="TileMap" type="TileMap" parent="walls"]
+tile_set = SubResource("TileSet_ievdy")
+cell_quadrant_size = 32
+format = 2
+layer_0/name = "floor"
+layer_0/tile_data = PackedInt32Array(-786352, 196610, 3, -262064, 196610, 4, 196688, 196610, 4, -786344, 262146, 3, -786336, 262146, 3, -786329, 262146, 3, -786322, 327682, 3, -262034, 327682, 4, 262254, 327682, 4, 196690, 327682, 4, -327593, 262146, 4, 196703, 262146, 4, 196696, 393218, 4, -327577, 393218, 4, -327585, 262146, 4, 196711, 262146, 4)
+layer_1/name = "wall"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-1048516, 458753, 0, -1048512, 524289, 0, -1048508, 589825, 0, -982961, 196610, 0, -982953, 262146, 0, -982945, 262146, 0, -982937, 262146, 0, -982929, 327682, 0, -458641, 327682, 1, 65647, 327682, 1, -458673, 196610, 1, 79, 196610, 1, 393295, 196610, 1, 393327, 327682, 1, 458863, 327682, 1)
+
+[node name="player" parent="." instance=ExtResource("2_w5dnv")]
+position = Vector2(899, -109)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
