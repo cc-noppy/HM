@@ -4,3 +4,11 @@
 - UI ()
 - Inventory ()
 - Props ()
+
+prop list:
+	- chair
+	- tables
+	- boxes
+	- shelves (industrial)
+	- lights
+	- puddles
