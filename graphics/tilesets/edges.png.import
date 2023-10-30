@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqur4qo7uxpnw"
-path="res://.godot/imported/pistol_proto.png-edab673e9528d2df65b541fcb1262e36.ctex"
+uid="uid://cmqupok6rm8dh"
+path="res://.godot/imported/edges.png-8064e4fc11cfbb364d4e25fed939e7ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/levels/icons/guns/pistol_proto.png"
-dest_files=["res://.godot/imported/pistol_proto.png-edab673e9528d2df65b541fcb1262e36.ctex"]
+source_file="res://graphics/tilesets/edges.png"
+dest_files=["res://.godot/imported/edges.png-8064e4fc11cfbb364d4e25fed939e7ff.ctex"]
 
 [params]
 

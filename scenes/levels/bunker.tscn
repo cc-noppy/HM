@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn7iliusofbr1"]
+
+[ext_resource type="PackedScene" uid="uid://cj45gqgstg3ff" path="res://scenes/player/player.tscn" id="1_7ohcw"]
+
+[node name="bunker" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="player" parent="." instance=ExtResource("1_7ohcw")]
+position = Vector2(252, 227)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
