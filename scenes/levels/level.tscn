@@ -1,12 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bg3bmymyt5xjq"]
 
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_najpb"]
+[ext_resource type="PackedScene" uid="uid://3tt5gupkpacp" path="res://scenes/bullet/bullet.tscn" id="2_ph2uf"]
 [ext_resource type="PackedScene" uid="uid://cj45gqgstg3ff" path="res://scenes/player/player.tscn" id="2_w5dnv"]
-[ext_resource type="Texture2D" uid="uid://cmqupok6rm8dh" path="res://graphics/tilesets/edges.png" id="3_4m2pg"]
-[ext_resource type="Texture2D" uid="uid://cyk625s3ya7cy" path="res://graphics/tilesets/flooring.png" id="4_gcfro"]
-[ext_resource type="Texture2D" uid="uid://cmbgapl46p2cl" path="res://graphics/tilesets/asphalt.png" id="5_5310r"]
+[ext_resource type="Script" path="res://scenes/bullet/BulletManager.gd" id="4_v0qbk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47l3y"]
-texture = ExtResource("5_5310r")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 1:0/0 = 0
@@ -55,7 +54,6 @@ tile_size = Vector2i(48, 48)
 sources/0 = SubResource("TileSetAtlasSource_47l3y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scbjf"]
-texture = ExtResource("3_4m2pg")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -547,7 +545,6 @@ texture_region_size = Vector2i(64, 64)
 11:13/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28jdb"]
-texture = ExtResource("4_gcfro")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1022,6 +1019,7 @@ sources/0 = SubResource("TileSetAtlasSource_scbjf")
 sources/1 = SubResource("TileSetAtlasSource_28jdb")
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_najpb")
 
 [node name="ground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_layas")
@@ -1047,3 +1045,8 @@ position = Vector2(1734, 568)
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
+
+[node name="Bullet" parent="." instance=ExtResource("2_ph2uf")]
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource("4_v0qbk")
