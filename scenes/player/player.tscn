@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jvgvqo8erlgo" path="res://graphics/player/player_pistol_equip.png" id="2_3x780"]
 [ext_resource type="PackedScene" uid="uid://3tt5gupkpacp" path="res://scenes/bullet/bullet.tscn" id="2_tem56"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwcdi"]
-size = Vector2(39.5534, 33.6108)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pcwun"]
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 31
@@ -13,7 +12,7 @@ script = ExtResource("1_2f1nt")
 bullet = ExtResource("2_tem56")
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(6, 1)
+position = Vector2(9, 1)
 rotation = -1.5708
 scale = Vector2(0.704846, 0.646207)
 texture = ExtResource("2_3x780")
@@ -21,8 +20,8 @@ texture = ExtResource("2_3x780")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6.0922, 0.999974)
 rotation = -1.5708
-scale = Vector2(1.54222, 1.36312)
-shape = SubResource("RectangleShape2D_xwcdi")
+scale = Vector2(1.87505, 2.0903)
+shape = SubResource("CircleShape2D_pcwun")
 
 [node name="EndOfGun" type="Marker2D" parent="."]
 position = Vector2(39, 0)
