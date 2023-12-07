@@ -1,7 +1,7 @@
 extends Area2D
 class_name Bullet
 
-@export var speed: int = 10
+@export var speed: int = 30
 
 
 @onready var timer = $Timer

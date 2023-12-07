@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj45gqgstg3ff"]
+[gd_scene load_steps=6 format=3 uid="uid://cj45gqgstg3ff"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2f1nt"]
 [ext_resource type="Texture2D" uid="uid://jvgvqo8erlgo" path="res://graphics/player/player_pistol_equip.png" id="2_3x780"]
@@ -6,16 +6,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pcwun"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d8a7p"]
+polygon = PackedVector2Array(-11, -28, -13, -22, -14, 0, -12, 26, -4, 30, -4.20203e-06, 28, 0.999997, 19, -6, 11, -8, 2, -6, -8, 1, -15, 2, -27, -6, -30)
+
 [node name="player" type="CharacterBody2D"]
-collision_mask = 31
 script = ExtResource("1_2f1nt")
 bullet = ExtResource("2_tem56")
-
-[node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(9, 1)
-rotation = -1.5708
-scale = Vector2(0.704846, 0.646207)
-texture = ExtResource("2_3x780")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6.0922, 0.999974)
@@ -23,8 +19,25 @@ rotation = -1.5708
 scale = Vector2(1.87505, 2.0903)
 shape = SubResource("CircleShape2D_pcwun")
 
+[node name="sprite" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-1.95503e-05, 1.39109)
+scale = Vector2(0.375908, 0.309146)
+texture = ExtResource("2_3x780")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CollisionShape2D"]
+position = Vector2(0.533317, -2.91451)
+rotation = 1.5708
+scale = Vector2(0.4784, 0.533319)
+occluder = SubResource("OccluderPolygon2D_d8a7p")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [node name="EndOfGun" type="Marker2D" parent="."]
 position = Vector2(39, 0)
 
 [node name="GunDirection" type="Marker2D" parent="."]
 position = Vector2(40, 0)
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://pnqg371vu082"]
+
+[ext_resource type="Texture2D" uid="uid://dasxdfo61h0bs" path="res://graphics/props/door1.png" id="1_yovtu"]
+[ext_resource type="Script" path="res://scenes/props/interaction_space.gd" id="2_pagib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rctfy"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_irwp2"]
+polygon = PackedVector2Array(-46, -17.1145, -46, 18.6704, 44, 18.6704, 44, -17.1145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kar7"]
+
+[node name="door" type="StaticBody2D"]
+
+[node name="collider" type="CollisionShape2D" parent="."]
+position = Vector2(48, 0)
+scale = Vector2(4.7433, 1.27965)
+shape = SubResource("RectangleShape2D_rctfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="collider"]
+scale = Vector2(0.377264, 0.846587)
+texture = ExtResource("1_yovtu")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="collider"]
+position = Vector2(0.210824, -1.56293)
+scale = Vector2(0.210824, 0.50227)
+occluder = SubResource("OccluderPolygon2D_irwp2")
+
+[node name="interaction_space" type="Area2D" parent="."]
+position = Vector2(49, -2)
+scale = Vector2(1, 0.64273)
+script = ExtResource("2_pagib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_space"]
+scale = Vector2(4.8812, 2.99516)
+shape = SubResource("RectangleShape2D_7kar7")
+
+[connection signal="body_entered" from="interaction_space" to="interaction_space" method="_on_body_entered"]

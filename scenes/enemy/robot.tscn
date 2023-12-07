@@ -1,28 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwcqtb35yb5mo"]
+[gd_scene load_steps=4 format=3 uid="uid://defok50fumfa4"]
 
-[ext_resource type="Script" path="res://scenes/enemy/rush.gd" id="1_u7kcw"]
-[ext_resource type="Texture2D" uid="uid://dgqeusqnkbb83" path="res://graphics/enemies/zombie.png" id="2_fho14"]
+[ext_resource type="Script" path="res://scenes/enemy/rush.gd" id="1_7dfpe"]
+[ext_resource type="Texture2D" uid="uid://b716yjieredwk" path="res://graphics/enemies/rush.png" id="2_e4so3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0oy0j"]
 
 [node name="rush" type="CharacterBody2D"]
 scale = Vector2(19.0796, 19.8895)
-script = ExtResource("1_u7kcw")
+script = ExtResource("1_7dfpe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.56856
 scale = Vector2(0.0737407, 0.0828066)
-texture = ExtResource("2_fho14")
+texture = ExtResource("2_e4so3")
 
 [node name="PhysCollide" type="CollisionShape2D" parent="."]
-visible = false
-scale = Vector2(0.15038, 0.143234)
+scale = Vector2(0.169813, 0.176899)
 shape = SubResource("CircleShape2D_0oy0j")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
-visible = false
 scale = Vector2(0.169813, 0.176899)
 shape = SubResource("CircleShape2D_0oy0j")
 
